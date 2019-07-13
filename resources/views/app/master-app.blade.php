@@ -101,9 +101,17 @@
               </a>
               <ul>
                 <li><a href="{{ url('home') }}" class="btn-floating red"><i class="ion-android-home"></i></a></li>
-                <li><a href="{{ url('biodata') }}" class="btn-floating yellow darken-1"><i class="ion-android-person"></i></a></li>
-                <li><a class="btn-floating green"><i class="ion-ios-telephone"></i></a></li>
-                <li><a class="btn-floating blue"><i class="ion-android-contact"></i></a></li>
+                <li>
+                    <a href="{{ url('biodata') }}" class="btn-floating yellow darken-1">
+                        <i class="ion-android-person"></i>
+                    </a>
+                </li>
+                <li><a href="{{ url('syncdata') }}" class="btn-floating blue"><i class="ion-android-sync"></i></a></li>
+                <li>
+                    <a href="tel:{{ setting('site.call_center') }}" class="btn-floating green">
+                    <i class="ion-ios-telephone"></i>
+                    </a>
+                </li>
               </ul>
             </div>
             <div class="preloader fixed-action-btn animated bouncein delay-3 horizontal click-to-toggle" style="display: none">

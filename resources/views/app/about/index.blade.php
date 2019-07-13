@@ -2,11 +2,11 @@
 
 @section('content')
 	<div class="section featured center grey lighten-5">
+  <i class="ion-android-warning infograph animated bounceInDown delay-5"></i>
 	  <h2 class="heading">Tentang SysmonikaApp</h2>
 	  <p>SysmonikaApp adalah aplikasi yang diperuntukan untuk pengecekan validitas KTP Masyarakat serta deikembangkan dengan fitur-fitur yang mampu mempermudah masyarakat dalam hubungan antar lingkungan disdukcapil. </p>
 	  <img src="{{ asset('frontsite/img/material.jpg') }}" alt="SysmonikaApp">
 	</div>
-
     <!-- Slider -->         
     <div class="swiper-container testimonials">
       <div class="swiper-wrapper">

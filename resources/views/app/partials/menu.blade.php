@@ -52,7 +52,7 @@
             </ul>
         </div>
     </li> --}}
-    <li><a href="#" class="waves-effect"><i class="ion-android-sync"></i> Sinkronisasi Data</a></li>
+    <li><a href="{{ url('syncdata') }}" class="waves-effect"><i class="ion-android-sync"></i> Sinkronisasi Data</a></li>
     <li>
         <a href="mailto:appsysmonika@gmail.com?subject={{ $responden->nik }} | Cek Status KTP" class="waves-effect">
             <i class="ion-android-mail"></i> Email Bantuan

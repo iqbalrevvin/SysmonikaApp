@@ -113,7 +113,6 @@
           @else
             <option value="{{ $responden->pekerjaan }}" disabled selected>{{ $responden->pekerjaan }}</option>
           @endif
-          <option value="" disabled selected>Pilih Pekerjaan</option>
           @forelse ($job as $job)
             <option value="{{ $job->name }}">{{ $job->name }}</option>
           @empty
@@ -124,8 +123,11 @@
       <span class="helper-text"><small>Kewarganegaraan</small></span>
       <div class="input-field animated fadeinright delay-5">
         <select class="browser-default" name="kewarganegaraan">
+        @if ($responden->kewarganegaraan == NULL)
+          <option value="" disabled selected>Pilih Kewarganegaraan</option>
+        @else
           <option value="{{ $responden->kewarganegaraan }}">{{ $responden->kewarganegaraan }}</option>
-          <option value="" disabled selected>Pilih Status Perkawinan</option>
+        @endif
           <option value="WNI">Warga Negara Indonesia</option>
           <option value="WNA">Warga Negara Asing</option>
         </select>
