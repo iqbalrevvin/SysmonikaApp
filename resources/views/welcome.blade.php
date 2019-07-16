@@ -82,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ url('contact_us') }}">
               <img src="{{ asset('/frontsite/images/icons/black/mobile.png') }}"/>
               <span>HUBUNGI KAMI</span>
             </a>

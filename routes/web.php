@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 
 Auth::routes(['verify' => true]);
-
+Route::get('/contact_us','ContactController@index');
+Route::post('/contact_us/send','ContactController@send')->name('contact.send');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/contact_us','ContactController@index');
     Route::get('/biodata','BiodataController@index');
     Route::get('/syncdata','SyncDataController@index');
     Route::post('/home', 'BiodataController@update')->name('biodata.update');

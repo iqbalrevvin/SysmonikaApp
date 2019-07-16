@@ -12,22 +12,24 @@
                         </a>
                         <div id="pages_maincontent">
                             <h2 class="page_title">HUBUNGI KAMI</h2>
-                            <div class="page_single layout_fullwidth_padding">    
-                                <h2 id="Note"></h2>
+                            <div class="page_single layout_fullwidth_padding"> 
+                                  @if (session('terkirim'))
+                                    <h4>{{ session('terkirim') }}</h4>
+                                  @endif   
+                                
                                 <div class="contactform">
-                                    <form class="" id="ContactForm" method="" action="">
+                                    <form id="ContactForm" method="post" action="{{ route('contact.send') }}">
+                                      @csrf
                                       <label>Nama Lengkap:</label>
-                                      <input type="text" name="nama" id="ContactName" class="form_input required" />
+                                      <input type="text" name="name" id="name" class="form_input required" value="{{ old('name') }}" />
                                       <label>Email:</label>
-                                      <input type="text" name="email" id="ContactEmail" class="form_input required email" />
+                                      <input type="email" name="email" id="email" class="form_input required email" />
                                       <label>Telp/HP:</label>
-                                      <input type="text" name="hp" id="ContactPhone" class="form_input required email" />
+                                      <input type="number" name="handphone" id="handphone" class="form_input required" value="{{ old('handphone') }}" />
                                       <label>Pesan:</label>
-                                      <textarea name="pesan" id="ContactComment" class="form_textarea textarea required"></textarea>
-                                      <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
-                                     {{--  <button type="submit" name="submit" class="form_submit" id="submit" >Send</button> --}}
-                                      <input class="" type="hidden" name="to"  value="youremail@yourwebsite.com" />
-                                      <input class="" type="hidden" name="subject" value="Contacf form message" />
+                                      <textarea name="message" id="message" class="form_textarea textarea required">{{ old('message') }}</textarea>
+                                      <input type="submit" name="submit" class="form_submit" id="submit" value="Kirim" />
+
                                         <label id="loader" style="display:none;">
                                             <img src="{{ asset('frontsite/images/loader.gif') }}" alt="Loading..." id="LoadingGraphic" />
                                         </label>
