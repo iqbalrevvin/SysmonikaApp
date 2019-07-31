@@ -20,6 +20,6 @@ class ContactController extends Controller
         ]);
         
         $send = Contact::create($request->all());
-        return redirect('/contact_us')->with('terkirim', 'Terimakasi Telah Menghubungi Kami, Pesan Anda Sudah Terkirim :)');
+        return redirect('/contact_us')->with('terkirim', 'Terimakasih Telah Menghubungi Kami, Pesan Anda Sudah Terkirim :)');
     }
 }
