@@ -121,6 +121,7 @@
             @error('email')
                 <span class="helper-text red-text" ><small>{{ $message }}</small></span><br>
             @enderror
+            <span class="helper-text" data-error="wrong" data-success="right">Email</span>
             <div class="input-field">
               <i class="ion-ios-email prefix"></i> 
               <input class="validate @error('email') invalid @enderror" type="email" name="email" 
