@@ -36,7 +36,7 @@
                           <div class="slider-caption">
                              <h2 data-swiper-parallax="-100%" class="title--white">{{ setting('site.slide-3-title') }}</h2>
                              <p data-swiper-parallax="-30%" class="text--white">{{ setting('site.slide-3-description') }}</p>
-                             <a href="{{ url('contact_us') }}" class="slider-caption__more" data-swiper-parallax="-60%">SELENGKAPNYA</a>
+                             <a href="{{ url('contact_us') }}" class="slider-caption__more" data-swiper-parallax="-60%">HUBUNGI KAMI</a>
                           </div>
                        </div>
                     </div>
