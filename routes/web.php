@@ -10,9 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Jenssegers\Agent\Agent;
 
 Route::get('/', function () {
-    return view('welcome');
+	
+	$agent = new Agent();
+	if ($agent->isMobile()) {
+    	return view('welcome');
+    }else{
+    	return view('app/nomobile');
+    }
 })->name('welcome');
 
 
