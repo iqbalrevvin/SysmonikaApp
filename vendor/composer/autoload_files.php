@@ -23,5 +23,4 @@ return array(
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
     '0d8253363903f0ac7b0978dcde4e28a0' => $vendorDir . '/beyondcode/laravel-dump-server/helpers.php',
     '672060c7ae621db36b3a3a88ad27b30f' => $vendorDir . '/forxer/laravel-gravatar/src/helpers.php',
-    'ba266d530b3229df87febdf5028d4e8d' => $baseDir . '/App/helpers/Global.php',
 );
