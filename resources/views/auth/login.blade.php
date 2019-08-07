@@ -62,58 +62,70 @@
 @extends('app.master-login')
 @section('content')
 <!-- Main Container -->
-<div id="main" class="main">
-    <!-- Toolbar -->
-    <div id="toolbar" class="primary-color tool-login">
-        {{-- <div class="open-left" id="open-left" data-activates="slide-out-left">
-            <i class="ion-android-menu white-text"></i>
-        </div> --}}
-    </div>
-    <!-- End of Toolbar -->
-    <!-- Page Contents -->
-    <div class="page fullscreen grey lighten-4">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div class="login-form z-depth-1">
-                <h1>Login Akun</h1>
-                @error('email')
-                    <span class="helper-text red-text" ><small>{{ $message }}</small></span><br>
-                @enderror
-                <div class="input-field">
-                    <i class="ion-android-contact prefix"></i>
-                    <input type="email" class="validate @error('email') invalid @enderror" id="email" name="email" placeholder="Email" 
-                        value="{{ old('email') }}" autofocus>
-                    {{-- <label for="login">Email / Nama Pengguna</label> --}}
-                </div>
-                @error('password')
-                    <span class="helper-text red-text"><small>{{ $message }}</small></span><br>
-                @enderror
-                <div class="input-field" style="margin-bottom:20px;">
-                    <i class="ion-android-lock prefix"></i>
-                    <input type="password" class="validate @error('password') invalid @enderror" id="password" name="password">
-                    <label for="login-psw">Kata Sandi</label>
-                    <div class="progress" style="display:none ;">
-                     <div class="indeterminate"></div>
+@php
+use Jenssegers\Agent\Agent;
+$agent = new Agent();
+@endphp
+@if ($agent->isMobile())
+    <div id="main" class="main">
+        <!-- Toolbar -->
+        <div id="toolbar" class="primary-color tool-login">
+            {{-- <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu white-text"></i>
+            </div> --}}
+        </div>
+        <!-- End of Toolbar -->
+        <!-- Page Contents -->
+        <div class="page fullscreen grey lighten-4">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="login-form z-depth-1">
+                    <h1>Login Akun</h1>
+                    @error('email')
+                        <span class="helper-text red-text" ><small>{{ $message }}</small></span><br>
+                    @enderror
+                    <div class="input-field">
+                        <i class="ion-android-contact prefix"></i>
+                        <input type="email" class="validate @error('email') invalid @enderror" id="email" name="email" placeholder="Email" 
+                            value="{{ old('email') }}" autofocus>
+                        {{-- <label for="login">Email / Nama Pengguna</label> --}}
                     </div>
+                    @error('password')
+                        <span class="helper-text red-text"><small>{{ $message }}</small></span><br>
+                    @enderror
+                    <div class="input-field" style="margin-bottom:20px;">
+                        <i class="ion-android-lock prefix"></i>
+                        <input type="password" class="validate @error('password') invalid @enderror" id="password" name="password">
+                        <label for="login-psw">Kata Sandi</label>
+                        <div class="progress" style="display:none ;">
+                         <div class="indeterminate"></div>
+                        </div>
+                    </div>
+                    {{-- <a class="waves-effect waves-light btn-large teal-color block m-b-20 animated bouncein delay-2" href="index.html">    Login
+                    </a> --}}
+                    <button type="submit" class="btn waves-effect waves-light btn-small teal-color block m-b-20 animated bouncein delay-2">
+                        {{ __('Login') }}
+                    </button>
+                    <span>Belum Punya Akun? <a class="primary-text" href="{{ url('register') }}">Daftar Akun</a></span>
+                    <br>
+                    @if (Route::has('password.request'))
+                        <span><a class="primary-text" href="{{ route('password.request') }}">Lupa Kata Sandi</a></span>
+                    @endif
+                    <hr>
+                    <span class="center-align"><a class="primary-text " href="{{ url('') }}">Kembali Ke Halaman Informasi</a></span>
                 </div>
-                {{-- <a class="waves-effect waves-light btn-large teal-color block m-b-20 animated bouncein delay-2" href="index.html">    Login
-                </a> --}}
-                <button type="submit" class="btn waves-effect waves-light btn-small teal-color block m-b-20 animated bouncein delay-2">
-                    {{ __('Login') }}
-                </button>
-                <span>Belum Punya Akun? <a class="primary-text" href="{{ url('register') }}">Daftar Akun</a></span>
-                <br>
-                @if (Route::has('password.request'))
-                    <span><a class="primary-text" href="{{ route('password.request') }}">Lupa Kata Sandi</a></span>
-                @endif
-                <hr>
-                <span class="center-align"><a class="primary-text " href="{{ url('') }}">Kembali Ke Halaman Informasi</a></span>
-            </div>
-        </form>
+            </form>
+        </div>
+        <!-- End of Page Contents -->
+        <!-- End of Sidebars -->
     </div>
-    <!-- End of Page Contents -->
-    <!-- End of Sidebars -->
-</div>
+@else
+    <script>
+        window.location.href = '{{url("/")}}';
+    </script>
+@endif
+
+
 @section('custom_script')
     <script>
         $("form").submit(function(){
