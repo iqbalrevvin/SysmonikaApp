@@ -64,7 +64,16 @@
           <span class="activity-type">
               <i class="ion-card"></i>
           </span>
+          <br>
+          <span class="activity-time small grey-text">
+                <i class="ion-card"></i> 
+                <span class="">Keterangan : <b>{!! $responden->keterangan !!}</b></span>
+          </span>
+          <span class="activity-type">
+              <i class="ion-card"></i>
+          </span>
         </div>
+
     </div>
       <!-- Activity -->
       
